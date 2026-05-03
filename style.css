@@ -344,7 +344,7 @@ button:active {
   border-radius: 50%;
   border: 2px solid rgba(124,255,0,0.25);
   background-color: #7CFF00;
-  background-image: url('pics/logo.png');
+  background-image: url('pics/Logo.png');
   background-size: 95%;
   background-position: center;
   background-repeat: no-repeat;
@@ -361,7 +361,7 @@ button:active {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 52%;
+  width: 50%;
   height: 3px;
   background: rgba(124,255,0,0.7);
   transform-origin: left;
