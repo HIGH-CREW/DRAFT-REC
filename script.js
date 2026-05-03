@@ -366,12 +366,12 @@ function spin(wheelId, offset = null){
   return new Promise(resolve => {
     const el = document.getElementById(wheelId);
     const startTime = performance.now();
-    // Novos tempos: 1.5s acelerando, 3.0s máxima velocidade, 2.0s desacelerando
-    const duration = 6500;
-    const t1 = 1500;
-    const t2 = 3000;
-    const t3 = 2000;
-    const fullRevs = 45; // Voltas para girar rapidamente nas duas roletas
+    // Novos tempos: 0.5s acelerando, 1s máxima velocidade, 0.5s desacelerando (Total: 2s)
+    const duration = 2000;
+    const t1 = 500;
+    const t2 = 1000;
+    const t3 = 500;
+    const fullRevs = 10; // Reduzido para encaixar bem nos 2 segundos
     const startRotation = wheelRotations[wheelId] || 0;
     
     let totalRotation;
@@ -391,10 +391,10 @@ function spin(wheelId, offset = null){
     }
 
     // Fórmulas físicas de deslocamento para transições suaves
-    const denominator = 4.75; // Área do gráfico de velocidade
-    const a1 = totalRotation * (0.75 / denominator);
-    const a2 = totalRotation * (3.0 / denominator);
-    const a3 = totalRotation * (1.0 / denominator);
+    const denominator = 1.5; // Área do gráfico de velocidade (0.25 + 1.0 + 0.25)
+    const a1 = totalRotation * (0.25 / denominator);
+    const a2 = totalRotation * (1.0 / denominator);
+    const a3 = totalRotation * (0.25 / denominator);
 
     function animate(now) {
       const elapsed = now - startTime;
